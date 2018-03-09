@@ -19,6 +19,16 @@ io.on('connection',(socket)=>{
     socket.on('disconnect',()=>{
         console.log('user was disconnected')
     })
+
+    socket.emit('newMessage',{
+        from:'donald',
+        text:'hey whats going on.'
+    })
+
+    socket.on('createMessage',(newMessage)=>{
+        newMessage.createdAt = Date().toLocaleLowerCase();
+        console.log('createMessage', newMessage)
+    })
 })
 
 server.listen(port, () => {
