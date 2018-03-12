@@ -28,9 +28,10 @@ io.on("connection", socket => {
     generateMessage("Admin", "New user joined the room")
   );
 
-  socket.on("createMessage", newMessage => {
+  socket.on("createMessage", (newMessage,callback) => {
     console.log("createMessage", newMessage);
     io.emit("newMessage", generateMessage(newMessage.from, newMessage.text));
+    callback('this is from the server');
   });
 });
 
