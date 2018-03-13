@@ -26,6 +26,7 @@ button {
   cursor: pointer;
   padding: 10px;
   transition: background 0.3s ease;
+  border-radius: 5px;
 }
 
 button:hover {
