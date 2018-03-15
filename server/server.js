@@ -52,7 +52,7 @@ io.on("connection", socket => {
 
     var user = users.getUser(socket.id);
 
-    io.emit("newMessage", generateMessage(user, newMessage.text));
+    io.emit("newMessage", generateMessage(user.name, newMessage.text));
     callback();
   });
 
