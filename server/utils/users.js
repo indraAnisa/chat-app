@@ -34,11 +34,23 @@ class Users {
     return user;
   }
 
+  getUserByName(name) {
+    return this.users.filter(
+      user => user.name.toUpperCase() === name.toUpperCase()
+    )[0];
+  }
+
   getUserList(room) {
     var users = this.users.filter(user => user.room === room);
     var namesArray = users.map(user => user.name);
 
     return namesArray;
+  }
+
+  getRooms() {
+    var rooms = this.users.map(user => user.room);
+
+    return rooms.filter((v, i) => rooms.indexOf(v) == i);
   }
 }
 

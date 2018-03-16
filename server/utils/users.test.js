@@ -71,4 +71,17 @@ describe("Users", () => {
 
     expect(user).toBeFalsy;
   });
+
+
+  it("should find user by name", () => {
+    var user = users.getUserByName("mike");
+
+    expect(user.name.toUpperCase()).toBe("mike".toUpperCase());
+  });
+
+  it("should not find user name", () => {
+    var user = users.getUserByName("joko");
+
+    expect(user).toBeFalsy;
+  });
 });

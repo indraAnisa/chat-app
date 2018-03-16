@@ -6,6 +6,7 @@
     <title>Join | Chat App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="/css/jquery-editable-select.css" rel="stylesheet">
 </head>
 
 <body class="centered-form">
@@ -16,17 +17,31 @@
             </div>
             <div class="form-field">
                 <label>Display name</label>
-                <input type="text" name="name" autofocus>
+                <input type="text" name="name" autofocus autocomplete="off">
             </div>
             <div class="form-field">
                 <label>Room Name</label>
-                <input type="text" name="room">
+                <input type="text" name="room" list="roomlist" autocomplete="off">
+                <datalist id="roomlist">
+                </datalist>
+
             </div>
+
             <div class="form-field">
                 <button>Join</button>
             </div>
         </form>
     </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/libs/jquery-3.3.1.min.js"></script>
+    <script src="/js/libs/moment.js"></script>
+    <script src="/js/libs/mustache.js"></script>
+    <script src="/js/libs/deparam.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/libs/jquery-editable-select.js"></script>
+
+
 </body>
 
 </html>

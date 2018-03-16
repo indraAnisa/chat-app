@@ -30,6 +30,14 @@ io.on("connection", socket => {
       return callback("name and room name are required");
     }
 
+    var nameExist = users.getUserByName(params.name);
+
+    if(nameExist){
+      return callback(`name: ${params.name} already exist, please use other name.`)
+    }
+
+    params.room = params.room.toUpperCase(); //non case sensitve rooms name
+
     socket.join(params.room);
     users.removeUser(socket.id);
     users.addUser(socket.id, params.name, params.room);
@@ -83,6 +91,13 @@ io.on("connection", socket => {
     }
   });
 });
+
+
+app.get('/getRooms',(req,res)=>{
+  var rooms = users.getRooms();
+  res.send(rooms);
+})
+
 
 server.listen(port, () => {
   console.log("started on port ", port);
