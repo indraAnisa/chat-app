@@ -6,7 +6,7 @@ const http = require("http");
 require("./config/config");
 
 const { generateMessage, generateLocationMessage } = require("./utils/message");
-const publicPath = path.join(__dirname, "../public");
+const publicPath = path.join("public");
 const { isRealString } = require("./utils/validation");
 const { Users } = require("./utils/users");
 
